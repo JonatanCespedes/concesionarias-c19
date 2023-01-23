@@ -1,4 +1,3 @@
-const { type } = require("os");
 const db = require("../database");
 
 module.exports = {
