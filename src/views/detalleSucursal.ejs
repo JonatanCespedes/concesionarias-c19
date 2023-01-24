@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head") %> 
+<body class="container">
+    <%- include("partials/header") %> 
+    <main class="container">
+        <h2><%= sucursal.sucursal %></h2>
+        <p><%= sucursal.telefono %></p>
+        <p><%= sucursal.direccion %></p>
+
+        <h3>Nuestros autos</h3>
+        <section class="row">
+            <% sucursal.autos.forEach(auto => { %>
+                <article class="col-12 col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title"><%- auto.modelo %></h5>
+                          <p class="card-text"><%- auto.marca %></p>
+                          <p class="card-text"><%- auto.anio %></p>
+                          <a href="/autos" class="btn btn-primary">Ver detalle</a>
+                        </div>
+                      </div>
+                </article>
+            <% }) %>
+           
+        </section>
+    </main>
+    <%- include("partials/footer") %> 
+    <%- include("partials/scripts") %> 
+</body>
+</html>

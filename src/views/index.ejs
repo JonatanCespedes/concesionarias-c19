@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+<body class="container">
+    <%- include("partials/header") %>
+    <h1>Mis sucursales</h1>
+
+    <main class="container">
+        <section class="row">
+            <% sucursales.forEach(sucursal => { %>
+                <article class="col-12 col-md-3">
+                    <div class="card">
+                        <img src="/images/<%- sucursal.imagen %>" class="card-img-top" alt="<%- sucursal.imagen %>">
+                        <div class="card-body">
+                          <h5 class="card-title"><%- sucursal.sucursal %></h5>
+                          <p class="card-text"><%- sucursal.direccion %></p>
+                          <p class="card-text"><%- sucursal.telefono %></p>
+                          <a href="/sucursales/<%- sucursal.sucursal %>" class="btn btn-primary">Ver sucursal</a>
+                        </div>
+                      </div>
+                </article>
+            <% }) %>
+        </section>
+    </main>
+
+    <%- include("partials/footer") %>
+</body>
+</html>

@@ -2,8 +2,9 @@ const db = require("../database");
 
 module.exports = {
     index: (req, res) => {
-        let nombresDeConcesionarias = db.map(concesionaria => concesionaria.sucursal)
-        return res.send(nombresDeConcesionarias)
+        return res.render("index", {
+            sucursales: db,
+        })
     },
     sucursales: (req, res) => {
         let concesionarias = db.map(({sucursal, telefono, direccion})=> {
@@ -27,6 +28,8 @@ module.exports = {
             return res.send("Sucursal no existe")
         }
 
-        return res.send(sucursal);
+        return res.render("detalleSucursal", {
+            sucursal
+        });
     },
 }
